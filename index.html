@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <title>Sample</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        
+        nav {
+            top: 0;
+            position: sticky;
+            background-color: #f1f1f1;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            border-color: #e7e7e7;
+            overflow: hidden;
+        }
+        
+        nav div.tog {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        
+        nav div.burger {
+            display: none;
+        }
+        
+        nav div.nav1 {
+            padding: 15px 0;
+        }
+        
+        nav div.nav2 {
+            padding: 15px 0;
+        }
+        
+        nav div.nav3 {
+            padding: 15px 0;
+        }
+        
+        nav div.nav1 a {
+            color: black;
+            font-size: 1.6rem;
+        }
+        
+        nav div.nav2 ul {
+            display: flex;
+        }
+        
+        nav div.nav3 ul {
+            display: flex;
+        }
+        
+        li {
+            list-style: none;
+            padding: 0 15px;
+        }
+        
+        a,
+        i {
+            text-decoration: none;
+            color: #777;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+        
+        i:hover {
+            color: black;
+        }
+        
+        a:hover {
+            color: black;
+        }
+        
+        footer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        footer div.foot {
+            display: flex;
+            flex-direction: column;
+            width: 700px;
+            height: 70px;
+            border-top: 1px solid #dddddd;
+        }
+        
+        footer div.foot div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-top: 20px;
+        }
+        
+        footer div.foot div ul {
+            display: flex;
+        }
+        
+        footer div.foot div ul li {
+            list-style: none;
+            padding: 0 10px;
+            border-right: 1px solid black;
+        }
+        
+        footer div.foot div ul li a {
+            color: rgb(2 189 249);
+            text-decoration: none;
+        }
+        
+        footer div.foot div ul li a:hover {
+            text-decoration: underline;
+            color: blue;
+        }
+        
+        footer div.foot div p {
+            color: black;
+        }
+        
+        footer div.foot div p a {
+            text-decoration: none;
+            color: rgb(2 189 249);
+        }
+        
+        footer div.foot div p a:hover {
+            text-decoration: underline;
+            color: blue;
+        }
+        
+        main {
+            display: flex;
+            justify-content: space-around;
+        }
+        
+        main section {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        main section div {
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            width: 302px;
+            height: 400px;
+            border: 1px solid;
+            box-shadow: 1px 1px 1px 1px #888888;
+            margin: 20px;
+        }
+        
+        main section.sec2 {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        main section.sec2 div {
+            width: 300px;
+            justify-content: center;
+            display: flex;
+            align-items: center;
+            height: 148px;
+        }
+        
+        main section div h1 {
+            font-size: 1.3rem;
+            text-align: center;
+        }
+        
+        main section div p {
+            font-size: 0.9rem;
+            text-align: center;
+            color: gray;
+        }
+        
+        main section.sec2 div.part1 div ul {
+            width: inherit;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e7e7e7;
+        }
+        
+        main section.sec2 div.part1 {
+            border-style: none;
+            box-shadow: none;
+        }
+        
+        main section.sec2 div.part1 div ul li {
+            border-right: 1px solid #e7e7e7;
+        }
+        
+        main section.sec2 div.part1 div ul li:hover {
+            background-color: rgb(190, 189, 189);
+        }
+        
+        .active {
+            background-color: gray;
+        }
+        
+        h3 {
+            margin: 0;
+        }
+        
+        @media only screen and (max-width:769px) {
+            nav {
+                display: block;
+                height: 15vh;
+            }
+            nav div.nav1 {
+                display: block;
+                text-align: center;
+                border-bottom: 1px solid #dddddd;
+            }
+            nav div {
+                flex-direction: column;
+            }
+            nav div.tog div.nav2 ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            nav div.tog div.nav2 ul li {
+                padding: 5px 0;
+            }
+            nav div.tog div.nav3 ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            nav div.tog div.nav3 {
+                padding: 0;
+            }
+            nav div.tog div.nav3 ul li {
+                padding: 5px 0;
+            }
+            .collapse {
+                height: 80vh;
+                transition: 1.2s all ease-in;
+            }
+            nav div.burger {
+                top: 17px;
+                right: 18px;
+                position: fixed;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            nav div.burger div {
+                width: 20px;
+                height: 4px;
+                margin: 2px 0;
+                background-color: black;
+            }
+            footer div.foot div ul {
+                flex-wrap: wrap;
+            }
+            main section {
+                justify-content: center;
+                width: 320px;
+            }
+            main section.sec2 {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="wow" class="collapse">
+        <div class="nav1">
+            <a href="#">Quizony</a>
+        </div>
+        <div class="tog">
+            <div class="nav2">
+                <ul>
+                    <li><a href="#">Categories</a></li>
+                    <li><a href="#">Create</a></li>
+                    <li><a href="#">Waiting Room</a></li>
+                    <li><a href="#">Our Story</a></li>
+                    <li><i class="fa fa-search"></i></li>
+                </ul>
+            </div>
+            <div class="nav3">
+                <ul>
+                    <li><a href="#">Sign Up</a></li>
+                    <li><a href="#">Login</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="burger dis">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </nav>
+    <h1 style="text-align: center;">Quizes for Woman</h1>
+    <main>
+        <section>
+            <div> <img src="./1.jpg" alt="" width="300px" height="250px">
+                <h1>What my asthetic?</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, delectus!</p>
+            </div>
+            <div> <img src="./2.jpg" alt="" width="300px" height="250px">
+                <h1>Are you a country girl or city girl?</h1>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptates, provident.</p>
+            </div>
+            <div> <img src="./3.jpg" alt="" width="300px" height="250px">
+                <h1>What asthetic is perfect for you?</h1>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptates, provident.</p>
+            </div>
+            <div> <img src="./4.jpeg" alt="" width="300px" height="250px">
+                <h1>What should be your wedding style?</h1>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptates, provident.</p>
+            </div>
+            <div> <img src="./5.jpg" alt="" width="300px" height="250px">
+                <h1>What suits you best?</h1>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptates, provident.</p>
+            </div>
+            <div> <img src="./6.jpg" alt="" width="300px" height="250px">
+                <h1>How faishonable am i?</h1>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptates, provident.</p>
+            </div>
+            <div> <img src="./7.jpg" alt="" width="300px" height="250px">
+                <h1>Witch test:Are you a real witch?</h1>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptates, provident.</p>
+            </div>
+            <div> <img src="./8.jpg" alt="" width="300px" height="250px">
+                <h1>What should i wear today?</h1>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptates, provident.</p>
+            </div>
+        </section>
+        <section class="sec2">
+            <div class="part1">
+                <h3>Quiz Categories</h3>
+                <div>
+                    <ul>
+                        <li class="active">Women</li>
+                        <li>Men</li>
+                        <li>Couple</li>
+                    </ul>
+                    <ul>
+                        <li>Kids</li>
+                        <li>Living</li>
+                        <li>Personality</li>
+                    </ul>
+                    <ul>
+                        <li>Relationship</li>
+                        <li>Animals</li>
+                        <li>Travel</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="part1">
+                <h3>Popular Tags</h3>
+                <div>
+                    <ul>
+                        <li>Girls</li>
+                        <li>friends</li>
+                        <li>fun</li>
+                    </ul>
+                    <ul>
+                        <li>Love</li>
+                        <li>Food</li>
+                        <li>Personality</li>
+                    </ul>
+                    <ul>
+                        <li>Name</li>
+                        <li>Generator</li>
+                        <li>Charachter</li>
+                    </ul>
+                </div>
+        </section>
+    </main>
+
+
+
+    <footer>
+        <div class="foot">
+            <div>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Advertise</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Cooking Policy</a></li>
+                </ul>
+            </div>
+            <div>
+                <p><a>Quizony.com</a> &copy;. All Rights Reserved</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        $(".burger").click(function() {
+            $("nav").toggleClass("collapse");
+        });
+    </script>
+</body>
+
+</html>
